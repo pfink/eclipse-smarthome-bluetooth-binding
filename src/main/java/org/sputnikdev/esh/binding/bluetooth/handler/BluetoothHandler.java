@@ -107,6 +107,10 @@ class BluetoothHandler<T extends BluetoothGovernor> extends BaseThingHandler {
         });
     }
 
+    public boolean hasChannelHandler(ChannelHandler handler) {
+        return this.channelHandlers.containsKey(handler);
+    }
+
     @Override
     protected void updateState(String channelID, State state) {
         super.updateState(channelID, state);

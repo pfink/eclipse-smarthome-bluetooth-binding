@@ -171,7 +171,7 @@ abstract class GattChannelHandler implements ChannelHandler {
     }
 
     private void buildMissingBinaryChannel() {
-        if (getBinaryChannel() == null) {
+        if (!handler.hasChannelHandler(this) || getBinaryChannel() == null) {
             Channel channel = buildBinaryChannel();
             handler.registerChannel(channel.getUID(), this);
             handler.updateThingWithChannels(Collections.singletonList(channel));
